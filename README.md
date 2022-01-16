@@ -5,3 +5,4 @@ Atcoder 235に関するコード
 https://atcoder.jp/contests/abc235/tasks
 
 ## 参考記事
+https://kuroro.blog/atcoder/htIfZfiFLaots6KJwt6f/
