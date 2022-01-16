@@ -3,8 +3,8 @@ from collections import deque
 # 標準入力を受け付ける。
 a, N = map(int, input().split())
 
-# <方針>
-# いずれかの操作をしても数字の桁数は減少しない。 ⏩ Nの最大値(10の6乗)を超えるまで、操作1, 操作2のどちらかができるまで行うと良い。
+# <方針> #####################
+# どちらかの操作をしてもxの桁数は減少しない。 ⏩ Nの最大値(10の6乗)を超えるまで、操作1, 操作2のどちらかを行い、Nに該当する操作手順が見つかるか考える。
 
 q = deque()
 
@@ -23,6 +23,7 @@ while len(q) > 0:
     tmp = x * a
 
     # Nの最大値を超えないかつ初めてtmpの値を訪れた場合。
+    # 初めてtmpの値を訪れた場合にするのは、最小の操作回数を求めるため。
     if tmp < MAX_N and dist[tmp] == -1:
         dist[tmp] = dist[x] + 1
         q.append(tmp)
@@ -36,10 +37,9 @@ while len(q) > 0:
     tmp = int(tmp[-1] + tmp[:-1])
 
     # Nの最大値を超えないかつ初めてtmpの値を訪れた場合。
+    # 初めてtmpの値を訪れた場合にするのは、最小の操作回数を求めるため。
     if tmp < MAX_N and dist[tmp] == -1:
         dist[tmp] = dist[x] + 1
         q.append(tmp)
 
 print(dist[N])
-
-
